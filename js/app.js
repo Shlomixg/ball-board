@@ -1,5 +1,7 @@
 'use strict';
 
+// Global Variables
+
 var WALL = 'WALL';
 var FLOOR = 'FLOOR';
 var BALL = 'BALL';
@@ -16,6 +18,8 @@ var gGamerPos = { i: 0, j: 0 };
 var gBoard;
 
 var gIsWon;
+
+// Functions
 
 function initGame() {
 	var elBtn = document.querySelector('button');
@@ -56,11 +60,6 @@ function buildBoard() {
 	// Place the gamer
 	// board[gGamerPos.i][gGamerPos.j].gameElement = GAMER;
 
-	// Place the Balls
-	// board[3][8].gameElement = BALL;
-	// board[7][4].gameElement = BALL;
-	// gCountActiveBalls = 2;
-
 	console.log(board);
 	return board;
 }
@@ -81,11 +80,8 @@ function renderBoard(board) {
 
 			strHTML += '\t<td class="cell ' + cellClass + '"  onclick="moveTo(' + i + ',' + j + ')" >\n';
 
-			if (currCell.gameElement === GAMER) {
-				strHTML += GAMER_IMG;
-			} else if (currCell.gameElement === BALL) {
-				strHTML += BALL_IMG;
-			}
+			if (currCell.gameElement === GAMER) strHTML += GAMER_IMG;
+			else if (currCell.gameElement === BALL) strHTML += BALL_IMG;
 
 			strHTML += '\t</td>\n';
 		}
